@@ -23,7 +23,7 @@ render_views
     end
     
     it "should have the right title" do
-          get 'home'
+          get 'contact'
           response.should have_selector("title",
                             :content => "| Contact")
     end
@@ -36,9 +36,22 @@ render_views
       end
       
       it "should have the right title" do
-            get 'home'
+            get 'about'
             response.should have_selector("title",
                               :content => "| About")
       end
     end
+    
+  describe "GET 'help'" do
+    it "should be successful" do
+      get 'help'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'help'
+      response.should have_selector("title",
+                        :content => "| Help")
+    end
+  end
 end
